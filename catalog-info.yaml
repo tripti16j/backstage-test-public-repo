@@ -1,7 +1,7 @@
 apiVersion: testapplication/version1
 kind: Component
 metadata:
-  name: Test application name
+  name: test-application-name
   description: Test application description
   # Example for optional annotations
   # annotations:
