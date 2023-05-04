@@ -1,0 +1,13 @@
+apiVersion: testapplication/version1
+kind: Component
+metadata:
+  name: Test application name
+  description: Test application description
+  # Example for optional annotations
+  # annotations:
+  #   github.com/project-slug: backstage/backstage
+  #   backstage.io/techdocs-ref: dir:.
+spec:
+  type: website
+  owner: testemail@go-yubi.com
+  lifecycle: experimental
