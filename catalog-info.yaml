@@ -1,4 +1,4 @@
-apiVersion: testapplication.com/v1
+apiVersion: backstage.io/test-application-name/v1
 kind: Component
 metadata:
   name: test-application-name
@@ -9,5 +9,5 @@ metadata:
   #   backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: john@example.com
+  owner: test-user@go-yubi.com
   lifecycle: experimental
