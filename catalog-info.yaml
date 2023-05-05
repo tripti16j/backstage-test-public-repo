@@ -9,5 +9,5 @@ metadata:
   #   backstage.io/techdocs-ref: dir:.
 spec:
   type: website
-  owner: test-user@go-yubi.com
+  owner: testuser@go-yubi.com
   lifecycle: experimental
