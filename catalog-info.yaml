@@ -3,6 +3,8 @@ kind: Component
 metadata:
   name: test-application1
   description: Test Application1
+  annotations:
+    'jenkins.io/job-full-name': Creditrating/CIR/OCSService/Prd/build-image
   # Example for optional annotations
   # annotations:
   #   github.com/project-slug: backstage/backstage
