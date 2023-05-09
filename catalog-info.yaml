@@ -4,7 +4,7 @@ metadata:
   name: test-application1
   description: Test Application1
   annotations:
-    'jenkins.io/job-full-name': Creditrating/CIR/OCSService/Int/build-image
+    'jenkins.io/job-full-name': Creditrating/CIR
     jira/project-key: CRD
     # jira/component: <example-component> # optional, you might skip this value to fetch data for all components
     # jira/token-type: Bearer # optional, used for Activity stream feed. If you are using Basic auth you can skip this.
