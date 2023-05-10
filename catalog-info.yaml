@@ -1,10 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: test-application1
-  description: Test Application1
+  name: test-application-name
+  description: Test Application Description - this is a microservice
+  labels:
+    example.com/custom: custom_label_value
   annotations:
-    'jenkins.io/job-full-name': Creditrating/CIR/OCSService/Int
+    jenkins.io/job-full-name: Creditrating/CIR/OCSService/Int
     jira/project-key: CRD
     # jira/component: <example-component> # optional, you might skip this value to fetch data for all components
     # jira/token-type: Bearer # optional, used for Activity stream feed. If you are using Basic auth you can skip this.
@@ -12,6 +14,14 @@ metadata:
   # annotations:
   #   github.com/project-slug: backstage/backstage
   #   backstage.io/techdocs-ref: dir:.
+  tags:
+    - java
+    - gradle
+  links:
+    - url: https://goyubi.atlassian.net/wiki/spaces/CRED/overview
+      title: OCS Confluence
+      icon: dashboard
+      type: ocs-confluence-dashboard
 spec:
   type: website
   owner: testuser@go-yubi.com
