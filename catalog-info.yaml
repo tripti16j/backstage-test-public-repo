@@ -1,8 +1,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: test-application-name
-  description: Test Application Description - this is a microservice
+  name: CreditOCSService
+  description: OCSService APIs
   labels:
     example.com/custom: custom_label_value
   annotations:
@@ -23,6 +23,6 @@ metadata:
       icon: dashboard
       type: ocs-confluence-dashboard
 spec:
-  type: website
-  owner: testuser@go-yubi.com
-  lifecycle: experimental
+  type: service
+  owner: venkatasandeep.godavarthi@go-yubi.com
+  lifecycle: production
