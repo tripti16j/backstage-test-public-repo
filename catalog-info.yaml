@@ -26,5 +26,3 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  providesApis:
-    - ocs-cibil-consumer-fetch
