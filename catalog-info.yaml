@@ -26,4 +26,4 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  dependsOn: test
+  dependsOn: [test]
