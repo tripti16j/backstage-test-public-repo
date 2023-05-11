@@ -27,4 +27,4 @@ spec:
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
   providesApis:
-    - /ocs/cibil/consumer/fetch
+    - ocs-cibil-consumer-fetch
