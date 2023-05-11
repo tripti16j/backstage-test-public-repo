@@ -27,4 +27,4 @@ spec:
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
   dependsOn:
-    - resource: 3PAPIs
+    - resource: default/3p-apis
