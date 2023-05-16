@@ -26,4 +26,4 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  providesApis: [example-grpc-api]
+  providesApis: [example-grpc-api, example-website]
