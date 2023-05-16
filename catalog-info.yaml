@@ -26,25 +26,4 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  providesApis: [ocs-api]
-
-
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: ocs-api
-spec:
-  type: grpc
-  lifecycle: experimental
-  owner: guests
-  system: examples
-  definition: |
-    syntax = "proto3";
-
-    service Exampler {
-      rpc Example (ExampleMessage) returns (ExampleMessage) {};
-    }
-
-    message ExampleMessage {
-      string example = 1;
-    };
+  providesApis: [example-grpc-api]
