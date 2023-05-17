@@ -75,17 +75,9 @@ kind: API
 metadata:
   name: flex-api
 spec:
-  type: grpc
+  type: openapi
   lifecycle: production
   owner: flex-group
   system: credit
-  definition: |
-    syntax = "proto3";
-
-    service Exampler {
-      rpc Example (ExampleMessage) returns (ExampleMessage) {};
-    }
-
-    message ExampleMessage {
-      string example = 1;
-    };
+  definition:
+    $text: https://cir-ocs-qa.go-yubi.in/v2/api-docs
