@@ -1,1 +1,24 @@
-
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: credit-team
+  description: This is the Credit team
+  links:
+    - url: https://credit.go-yubi.com/
+      title: Website
+spec:
+  type: team #can be any string. No enforced set of values for this field
+  profile:
+    displayName: Credit Team
+    email: credit-yubi@go-yubi.com
+    picture: https://avatars.dicebear.com/api/identicon/info@example.com.svg?background=%23fff&margin=25
+  children: [flex-group]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: credit-pods
+  description: A collection of all PODs in Credit Team
+spec:
+  targets:
+    - ./flex.yaml
