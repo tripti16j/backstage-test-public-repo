@@ -3,7 +3,7 @@ kind: System
 metadata:
   name: credit
 spec:
-  owner: credit@go-yubi.com
+  owner: credit-team
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
