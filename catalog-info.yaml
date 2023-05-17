@@ -1,7 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: CREDIT
+  name: credit
 spec:
   owner: credit@go-yubi.com
 ---
@@ -33,7 +33,28 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  system: CREDIT
+  system: credit
   providesApis:
     - example-grpc-api
     - example-website
+    - test-api
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: test-api
+spec:
+  type: grpc
+  lifecycle: experimental
+  owner: testapi@go-yubi.com
+  system: credit
+  definition: |
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
