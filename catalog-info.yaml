@@ -1,11 +1,4 @@
 apiVersion: backstage.io/v1alpha1
-kind: System
-metadata:
-  name: CREDIT
-spec:
-  owner: credit@go-yubi.com
-
-apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: CreditOCSService
