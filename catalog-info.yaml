@@ -38,6 +38,7 @@ spec:
     - example-grpc-api
     - example-website
     - test-api
+    - flex-api
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
@@ -47,6 +48,26 @@ spec:
   type: grpc
   lifecycle: experimental
   owner: testapi@go-yubi.com
+  system: credit
+  definition: |
+    syntax = "proto3";
+
+    service Exampler {
+      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+    }
+
+    message ExampleMessage {
+      string example = 1;
+    };
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: flex-api
+spec:
+  type: grpc
+  lifecycle: production
+  owner: flex-group
   system: credit
   definition: |
     syntax = "proto3";
