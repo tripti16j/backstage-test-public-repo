@@ -1,4 +1,13 @@
 apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: credit-team-all
+  description: All employees part of credit team
+spec:
+  targets:
+    - ./team/org.yaml
+---
+apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
   name: credit
@@ -79,12 +88,3 @@ spec:
     message ExampleMessage {
       string example = 1;
     };
----
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: credit-team-all
-  description: All employees part of credit team
-spec:
-  targets:
-    - ./team/org.yaml
