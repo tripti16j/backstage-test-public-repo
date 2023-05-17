@@ -26,7 +26,8 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  system: CREDIT
+  system:
+    $yaml: ./system.yaml
   providesApis:
     - example-grpc-api
     - example-website
