@@ -1,4 +1,11 @@
 apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: CREDIT
+spec:
+  owner: credit@go-yubi.com
+---
+apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: CreditOCSService
@@ -26,8 +33,7 @@ spec:
   type: service
   owner: venkatasandeep.godavarthi@go-yubi.com
   lifecycle: production
-  system:
-    $yaml: ./system.yaml
+  system: CREDIT
   providesApis:
     - example-grpc-api
     - example-website
