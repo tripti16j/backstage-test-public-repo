@@ -51,6 +51,8 @@ spec:
     - flex-api
   consumesApis:
     - 3p-apis
+  dependsOn:
+    - ocs-db
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
@@ -94,3 +96,13 @@ spec:
   owner: 3p-group
   definition:
     $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ocs-db
+  description: Stores OCS data
+spec:
+  type: database
+  owner: credit-team
+  system: credit
