@@ -101,7 +101,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Resource
 metadata:
   name: ocs-db
-  description: Stores OCS data
+  description: Stores OCS data in Mongo db
 spec:
   type: database
   owner: credit-team
