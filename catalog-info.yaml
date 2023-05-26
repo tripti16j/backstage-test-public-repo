@@ -106,3 +106,4 @@ spec:
   type: database
   owner: credit-team
   system: credit
+  lifecycle: production
