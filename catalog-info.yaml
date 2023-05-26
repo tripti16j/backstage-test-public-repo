@@ -49,8 +49,8 @@ spec:
   providesApis:
     - test-api
     - flex-api
-#  consumesApis:
-#    - 3p-apis
+  consumesApis:
+    - 3p-apis
   dependsOn:
     - resource:ocs-db
     - component:3p-component
