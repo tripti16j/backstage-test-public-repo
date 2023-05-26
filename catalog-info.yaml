@@ -46,8 +46,6 @@ spec:
   lifecycle: production
   system: credit
   providesApis:
-    - example-grpc-api
-    - example-website
     - test-api
     - flex-api
 ---
@@ -82,3 +80,14 @@ spec:
   system: credit
   definition:
     $text: https://cir-ocs-qa.go-yubi.in/v2/api-docs
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: 3p-apis
+spec:
+  type: openapi
+  lifecycle: production
+  owner: 3p-group
+  definition:
+    $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
