@@ -49,6 +49,8 @@ spec:
   providesApis:
     - test-api
     - flex-api
+  consumesApis:
+    - 3p-apis
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
