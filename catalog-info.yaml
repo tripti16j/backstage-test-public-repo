@@ -6,6 +6,7 @@ metadata:
 spec:
   targets:
     - ./team/org.yaml
+    - ./team/3p.yaml
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
