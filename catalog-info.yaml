@@ -52,7 +52,7 @@ spec:
   consumesApis:
     - 3p-apis
   dependsOn:
-    - ocs-db
+    - resource:ocs-db
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
