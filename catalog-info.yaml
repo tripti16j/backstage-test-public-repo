@@ -43,7 +43,7 @@ metadata:
       type: ocs-confluence-dashboard
 spec:
   type: service
-  owner: venkatasandeep.godavarthi@go-yubi.com
+  owner: credit-team
   lifecycle: production
   system: credit
   providesApis:
