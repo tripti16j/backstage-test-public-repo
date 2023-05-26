@@ -49,10 +49,11 @@ spec:
   providesApis:
     - test-api
     - flex-api
-  consumesApis:
-    - 3p-apis
+#  consumesApis:
+#    - 3p-apis
   dependsOn:
     - resource:ocs-db
+    - component:3p-component
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
@@ -107,3 +108,15 @@ spec:
   owner: credit-team
   system: credit
   lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: 3p-component
+  description: Third party APIs service
+spec:
+  type: service
+  lifecycle: production
+  owner: 3p-group
+  providesApis:
+    - 3p-apis
