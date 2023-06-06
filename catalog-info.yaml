@@ -43,7 +43,7 @@ metadata:
       type: ocs-confluence-dashboard
 spec:
   type: service
-  owner: credit
+  owner: group:default/credit
   lifecycle: production
   system: OCS
   providesApis:
@@ -62,7 +62,7 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: User:default/venkata-sandeep-godavarthi
+  owner: user:default/venkata-sandeep-godavarthi
   system: OCS
   definition: |
     syntax = "proto3";
