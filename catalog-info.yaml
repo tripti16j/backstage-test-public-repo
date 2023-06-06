@@ -1,19 +1,19 @@
-apiVersion: backstage.io/v1alpha1
-kind: Location
-metadata:
-  name: credit-team-all
-  description: All employees part of credit team
-spec:
-  targets:
-    - ./team/org.yaml
-    - ./team/3p.yaml
+#apiVersion: backstage.io/v1alpha1
+#kind: Location
+#metadata:
+#  name: credit-team-all
+#  description: All employees part of credit team
+#spec:
+#  targets:
+#    - ./team/org.yaml
+#    - ./team/3p.yaml
 ---
 apiVersion: backstage.io/v1alpha1
 kind: System
 metadata:
-  name: credit
+  name: OCS
 spec:
-  owner: credit-team
+  owner: credit
 ---
 apiVersion: backstage.io/v1alpha1
 kind: Component
@@ -43,9 +43,9 @@ metadata:
       type: ocs-confluence-dashboard
 spec:
   type: service
-  owner: credit-team
+  owner: credit
   lifecycle: production
-  system: credit
+  system: OCS
   providesApis:
     - test-api
     - flex-api
@@ -62,8 +62,8 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: testapi@go-yubi.com
-  system: credit
+  owner: venkata-sandeep-godavarthi
+  system: OCS
   definition: |
     syntax = "proto3";
 
@@ -82,8 +82,8 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: flex-group
-  system: credit
+  owner: credit
+  system: OCS
   definition:
     $text: https://cir-ocs-qa.go-yubi.in/v2/api-docs
 ---
@@ -94,7 +94,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: 3p-group
+  owner: thirdparty
   definition:
     $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
 ---
@@ -105,8 +105,8 @@ metadata:
   description: Stores OCS data in Mongo db
 spec:
   type: database
-  owner: credit-team
-  system: credit
+  owner: credit
+  system: OCS
   lifecycle: production
 ---
 apiVersion: backstage.io/v1alpha1
@@ -117,6 +117,6 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: 3p-group
+  owner: thirdparty
   providesApis:
     - 3p-apis
