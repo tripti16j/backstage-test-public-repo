@@ -23,7 +23,7 @@ metadata:
   labels:
     example.com/custom: custom_label_value
   annotations:
-    jenkins.io/job-full-name: Creditrating/CIR/OCSService/Stg/build-image
+    jenkins.io/job-full-name: Creditrating/CIR/OCSService/Prd/build-image
     jira/project-key: CRD
     backstage.io/code-coverage: scm-only
     backstage.io/techdocs-ref: github:https://github.com/venkatasandeep506/backstage-test-public-repo
