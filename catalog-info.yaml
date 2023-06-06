@@ -43,7 +43,7 @@ metadata:
       type: ocs-confluence-dashboard
 spec:
   type: service
-  owner: group:default/credit
+  owner: group:credit
   lifecycle: production
   system: OCS
   providesApis:
@@ -62,7 +62,7 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: user:default/venkata-sandeep-godavarthi
+  owner: user:venkata-sandeep-godavarthi
   system: OCS
   definition: |
     syntax = "proto3";
@@ -82,7 +82,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: credit
+  owner: group:credit
   system: OCS
   definition:
     $text: https://cir-ocs-qa.go-yubi.in/v2/api-docs
