@@ -62,7 +62,7 @@ metadata:
 spec:
   type: grpc
   lifecycle: experimental
-  owner: venkata-sandeep-godavarthi
+  owner: User:default/venkata-sandeep-godavarthi
   system: OCS
   definition: |
     syntax = "proto3";
