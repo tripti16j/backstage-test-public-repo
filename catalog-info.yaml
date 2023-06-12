@@ -47,7 +47,7 @@ spec:
   lifecycle: production
   system: OCS
   providesApis:
-    - test-api
+#    - test-api
     - flex-api
   consumesApis:
     - 3p-apis
@@ -55,25 +55,25 @@ spec:
     - resource:ocs-db
     - component:3p-component
 ---
-apiVersion: backstage.io/v1alpha1
-kind: API
-metadata:
-  name: test-api
-spec:
-  type: grpc
-  lifecycle: experimental
-  owner: user:venkata-sandeep-godavarthi
-  system: OCS
-  definition: |
-    syntax = "proto3";
-
-    service Exampler {
-      rpc Example (ExampleMessage) returns (ExampleMessage) {};
-    }
-
-    message ExampleMessage {
-      string example = 1;
-    };
+#apiVersion: backstage.io/v1alpha1
+#kind: API
+#metadata:
+#  name: test-api
+#spec:
+#  type: grpc
+#  lifecycle: experimental
+#  owner: user:venkata-sandeep-godavarthi
+#  system: OCS
+#  definition: |
+#    syntax = "proto3";
+#
+#    service Exampler {
+#      rpc Example (ExampleMessage) returns (ExampleMessage) {};
+#    }
+#
+#    message ExampleMessage {
+#      string example = 1;
+#    };
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
