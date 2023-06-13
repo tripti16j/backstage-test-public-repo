@@ -115,8 +115,6 @@ kind: Component
 metadata:
   name: 3p-component
   description: Third party APIs service
-#annotations:
-#  newrelic.com/dashboard-guid: Mjg0NjIxOXxWSVp8REFTSEJPQVJEfGRhOjM0OTA4MTI
 spec:
   type: service
   lifecycle: production
