@@ -65,8 +65,1239 @@ spec:
   type: openapi
   lifecycle: production
   owner: group:common-platform
-  definition:
-    $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
+  definition: |
+    openapi: 3.0.0
+    info:
+      title: User Service
+      version: 1.0.0
+    servers:
+      - url: https://auth-stg-api.credavenue.in
+      - url: http://{{url_qa}}
+      - url: http://localhost:3000
+      - url: http://{{url}}
+    tags:
+      - name: Auth
+    paths:
+      /auth/login/is_password_valid:
+        post:
+          tags:
+            - Auth
+          summary: verify user
+          requestBody:
+            content: {}
+          parameters:
+            - name: email
+              in: query
+              schema:
+                type: string
+              example: jack@gmail.com
+          responses:
+            '200':
+              description: OK
+              headers:
+                Date:
+                  schema:
+                    type: string
+                    example: Wed, 23 Jun 2021 06:29:00 GMT
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+                Connection:
+                  schema:
+                    type: string
+                    example: keep-alive
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"6f34a63aabd0690275b9d170a7d9c56c"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 38e0f783-0f95-4f78-a7f0-047151b6d880
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.008130'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    user_email: narayanan@svasti.in
+                    mfa_token: null
+                    temp_password: null
+                    invalid_password_check: null
+                    internal: false
+      /auth/ms_login:
+        post:
+          tags:
+            - Auth
+          summary: ms login
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: id_token
+              in: query
+              schema:
+                type: string
+              description: microsoft token id
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"7165fa9f395ae2bf31ea898f55b09bce"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: c87630b7-3cc7-49d5-a7bd-6c4e23e88e04
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '67.560075'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Content-Length:
+                  schema:
+                    type: integer
+                    example: '306'
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    user_email: aananthi.m@credavenue.com
+                    mfa_token: >-
+                      eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiZXhwIjoxNjMxMTAyMDEzfQ.C8vrbpUsS4YloX7NGCyM2zB3AC4uK-AkEgELKA3vKrQ
+                    temp_password: 0ORc4gH3jy9uVzxw9DO7YkiRsANy1WrI9YxkpAFdcTg=
+                    invalid_password_check: null
+                    internal: false
+      /users/5da40f0274a0f370a1fa941b/mfa:
+        patch:
+          tags:
+            - default
+          summary: fetch mfa for a user
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity_id}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                Date:
+                  schema:
+                    type: string
+                    example: Wed, 23 Jun 2021 06:35:32 GMT
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+                Connection:
+                  schema:
+                    type: string
+                    example: keep-alive
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"c955e57777ec0d73639dca6748560d00"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 8f42c079-51c3-4ca6-b600-a2537aa83eaa
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.426252'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    success: true
+      /users/5da40f0274a0f370a1fa941b/mfa_verify:
+        patch:
+          tags:
+            - default
+          summary: mfa verify an user
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity_id}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: integer
+              description: Respective product from which api is called(code/id can be used)
+              example: '1'
+            - name: otp
+              in: query
+              schema:
+                type: integer
+              example: '999999'
+          responses:
+            '200':
+              description: OK
+              headers:
+                Date:
+                  schema:
+                    type: string
+                    example: Wed, 23 Jun 2021 06:36:10 GMT
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+                Connection:
+                  schema:
+                    type: string
+                    example: keep-alive
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"b7cdddd303a32d868fcca31744d41dc3"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 78f7c7b0-00a5-4547-94da-c2f196201f88
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.089663'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    mfa_token: >-
+                      eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiZXhwIjoxNjMyMzc4OTcwfQ.6qEZtYL80J2Rp9ZkRPW08dzgvfU63PwgyL4eaRAD6p4
+      /users/5da40f0274a0f370a1fa941b/logout_from_all_devices:
+        patch:
+          tags:
+            - default
+          summary: logout from all devices user
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity_id}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                Date:
+                  schema:
+                    type: string
+                    example: Wed, 23 Jun 2021 06:37:04 GMT
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+                Connection:
+                  schema:
+                    type: string
+                    example: keep-alive
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"c955e57777ec0d73639dca6748560d00"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 8d988346-1bd1-4883-81eb-3d15a540f82f
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.073270'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    success: true
+      /users/can_update_password:
+        get:
+          tags:
+            - default
+          summary: can update password
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: integer
+              description: Respective product from which api is called(code/id can be used)
+              example: '1'
+            - name: user_id
+              in: query
+              schema:
+                type: integer
+              example: '1'
+          responses:
+            '200':
+              description: OK
+              headers:
+                Date:
+                  schema:
+                    type: string
+                    example: Wed, 23 Jun 2021 06:37:35 GMT
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+                Connection:
+                  schema:
+                    type: string
+                    example: keep-alive
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"c955e57777ec0d73639dca6748560d00"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 3c023c71-9c6a-4908-b597-a7f2485adbf6
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.017604'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    success: true
+      /users/5da40f0274a0f370a1fa941b/resend_activation_link:
+        patch:
+          tags:
+            - default
+          summary: Resend activation link
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity_id}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"c955e57777ec0d73639dca6748560d00"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 13264229-c26e-411c-9459-ba10b6273001
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '19.462238'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    success: true
+      /users/forgot_password:
+        patch:
+          tags:
+            - default
+          summary: activate
+          requestBody:
+            content: {}
+          parameters:
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              description: Respective product from which api is called(code/id can be used)
+              example: CRDPL
+            - name: email
+              in: query
+              schema:
+                type: string
+              example: ben@gmail.com
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"1c85ad52cffe5aaca6673bde579a7663"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 2e8982f5-dfa6-4bb7-9174-e664acb9d401
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '14.058352'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    email: aananthi.m@credavenue.com
+                    mfa_token: null
+      /users/5da40f0274a0f370a1fa941b/change_password:
+        patch:
+          tags:
+            - default
+          summary: change_password
+          requestBody:
+            content: {}
+          parameters:
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"f83056610d275924204291596001f761"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 52901c6b-a005-45ec-a4f6-b02b4aade690
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '2.614365'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    id: 1
+                    ca_user_id: 5daeab39e4c4130f4a7f5514
+                    name: Rep. Rageshwari Mukhopadhyay
+                    email: jared@mohr.net
+                    email_verified: null
+                    groups:
+                      customer: admin
+                      investor: admin
+                    notification_channels:
+                      - email
+                    notifications:
+                      - email
+                    terms_and_conditions_accepted: false
+                    sector: null
+                    created_at: '2021-07-19T05:55:02.481Z'
+                    updated_at: '2021-07-26T05:20:44.714Z'
+                    internal: null
+                    roles: []
+      /auth/logout:
+        post:
+          tags:
+            - default
+          summary: Logout
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: no-cache
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 51010c02-d726-4020-ab62-4d7018232597
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.774291'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example: {}
+            '401':
+              description: Unauthorized
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                Vary:
+                  schema:
+                    type: string
+                    example: Accept, Origin
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: no-cache
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: cc28ce54-6082-4af7-87d9-44f9c90dc8d5
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.005032'
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    error:
+                      message: Not Authenticated - Blacklisted Token
+      /auth/login/verify:
+        post:
+          tags:
+            - default
+          summary: Verify access token and mfa token
+          requestBody:
+            content: {}
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: '{{access_token}}'
+            - name: Mfa-Token
+              in: header
+              schema:
+                type: string
+              example: '{{mfa_token}}'
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: '{{current_entity_id}}'
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: '{{current_group}}'
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"85cb4d289bde1bbf113800309a95608d"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 87ef9a60-0b3b-4d42-9a97-7f58dcf18ca9
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.456781'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    auth0_payload:
+                      https://mp-api-stg.vivriti.in/roles:
+                        - admin
+                      https://mp-api-stg.vivriti.in/groups:
+                        - customer
+                      https://mp-api-stg.vivriti.in/subgroups:
+                        - anchor
+                      https://mp-api-stg.vivriti.in/entity_id: 5aa22f88b5b6e272fbad2400
+                      https://mp-api-stg.vivriti.in/local_user_id: 5da40f0274a0f370a1fa941b
+                      iss: https://vivriti-market-place-stg.auth0.com/
+                      sub: auth0|5da40f04bddc0e0dff3e1619
+                      aud:
+                        - https://mp-api-stg.vivriti.in
+                        - https://vivriti-market-place-stg.auth0.com/userinfo
+                      iat: 1637919167
+                      exp: 1638005567
+                      azp: Kuo6v0ErWRTtXGtAF67Z4SNFBX7P22AZ
+                      scope: openid email
+                    auth0_header:
+                      alg: RS256
+                      typ: JWT
+                      kid: MDg3N0E5N0MzRkRGOTk2QkU2NzZBRTNENEEwNTE3NUMzRkZBRUEwRg
+                    user_id: 5da40f0274a0f370a1fa941b
+      /auth/login/mfa_token_for_sso:
+        get:
+          tags:
+            - default
+          summary: MFA token for sso login
+          parameters:
+            - name: Authorization
+              in: header
+              schema:
+                type: string
+              example: >-
+                eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1EZzNOMEU1TjBNelJrUkdPVGsyUWtVMk56WkJSVE5FTkVFd05URTNOVU16UmtaQlJVRXdSZyJ9.eyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9yb2xlcyI6WyJhZG1pbiJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9ncm91cHMiOlsiY3VzdG9tZXIiXSwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vc3ViZ3JvdXBzIjpbImFuY2hvciJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9lbnRpdHlfaWQiOiI1YWEyMmY4OGI1YjZlMjcyZmJhZDI0MDAiLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9sb2NhbF91c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiaXNzIjoiaHR0cHM6Ly92aXZyaXRpLW1hcmtldC1wbGFjZS1zdGcuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTQwZjA0YmRkYzBlMGRmZjNlMTYxOSIsImF1ZCI6WyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbiIsImh0dHBzOi8vdml2cml0aS1tYXJrZXQtcGxhY2Utc3RnLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2Mzk5ODcwMTEsImV4cCI6MTY0MDA3MzQxMSwiYXpwIjoiS3VvNnYwRXJXUlR0WEd0QUY2N1o0U05GQlg3UDIyQVoiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCJ9.aWkuPfqwQvaHhHp06Jn_aDBCavGnrYyPP4Ni6YqGcVfXkB-fGHB_xvu3aaDC04TEJTkZhs3IhV5s7e7hvSWxkIB8c-t0bf2WhHzjUXsgQC9GA83v22d68CPrlrh6hnitPic7TrAH0dVYBUR0tugPWfnBvJZ1Nhlgq9xKKu3IwkiNKxH_hRV4xbTJsS8bacdRoP-ZE_yJtMi2Ags6BHJj0-jFa3DDs3VwuMlAAmp3nVcLn81bLbvTLOFKX9kjY0M-uK03Tl6ZiCv374MG_oLQKsiV8PTllkp2AH3PhxT8QsKAztA1HJx5Cv8ylGSGJTA_dOViJEEf4tkqY9s-tcyKXA
+            - name: Current-Group
+              in: header
+              schema:
+                type: string
+              example: customer
+            - name: Current-Entity-Id
+              in: header
+              schema:
+                type: string
+              example: 5aa22f88b5b6e272fbad2400
+            - name: product_id
+              in: query
+              schema:
+                type: string
+              example: CRDPL
+          responses:
+            '200':
+              description: OK
+              headers:
+                X-Frame-Options:
+                  schema:
+                    type: string
+                    example: SAMEORIGIN
+                X-XSS-Protection:
+                  schema:
+                    type: string
+                    example: 1; mode=block
+                X-Content-Type-Options:
+                  schema:
+                    type: string
+                    example: nosniff
+                X-Download-Options:
+                  schema:
+                    type: string
+                    example: noopen
+                X-Permitted-Cross-Domain-Policies:
+                  schema:
+                    type: string
+                    example: none
+                Referrer-Policy:
+                  schema:
+                    type: string
+                    example: strict-origin-when-cross-origin
+                Content-Type:
+                  schema:
+                    type: string
+                    example: application/json; charset=utf-8
+                ETag:
+                  schema:
+                    type: string
+                    example: W/"1949db1393d196e58756482f59db41aa"
+                Cache-Control:
+                  schema:
+                    type: string
+                    example: max-age=0, private, must-revalidate
+                X-Request-Id:
+                  schema:
+                    type: string
+                    example: 569c3dbb-b7b2-4f96-8bf7-8f6b9b750003
+                X-Runtime:
+                  schema:
+                    type: number
+                    example: '0.232709'
+                Vary:
+                  schema:
+                    type: string
+                    example: Origin
+                Transfer-Encoding:
+                  schema:
+                    type: string
+                    example: chunked
+              content:
+                application/json:
+                  schema:
+                    type: object
+                  example:
+                    user_email: aananthi.m@credavenue.net
+                    mfa_token: >-
+                      eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiYWRhcyIsImV4cCI6MTY0Njc1ODcwN30.nrnc_YrlXatbNnCULMMsKOMMOeZNPncltuPB-l713Sk
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
