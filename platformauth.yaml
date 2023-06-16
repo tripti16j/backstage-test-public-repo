@@ -46,11 +46,11 @@ spec:
 #  consumesApis:
 #    - [Auth0 Services]
 #    - [CNS services]
-#  dependsOn:
-#    - Credit
-#    - Pools
-#    - Co-lending
-#    - SCF
-#    - Loans
-#    - Invest
+  dependsOn:
+    - Credit
+    - Pools
+    - Co-lending
+    - SCF
+    - Loans
+    - Invest
 ---
