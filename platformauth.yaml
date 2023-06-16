@@ -46,7 +46,6 @@ spec:
   consumesApis:
     - auth0-apis
     - cns-apis
-    - flex-api
 #  dependsOn:
 #    - component:CreditOCSService
 #    - component:Pools
@@ -62,7 +61,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: thirdparty
+#  owner: thirdparty
   definition:
     $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
 ---
