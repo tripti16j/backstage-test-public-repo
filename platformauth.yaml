@@ -43,9 +43,12 @@ spec:
   lifecycle: production
   owner: group:common-platform
 #  system: platform
-  consumesApis:
+  providesApis:
     - auth0-apis
     - cns-apis
+#  consumesApis:
+#    - auth0-apis
+#    - cns-apis
 #  dependsOn:
 #    - component:CreditOCSService
 #    - component:Pools
@@ -61,7 +64,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-#  owner: thirdparty
+  owner: group:common-platform
   definition:
     $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
 ---
@@ -72,7 +75,7 @@ metadata:
 spec:
   type: openapi
   lifecycle: production
-  owner: thirdparty
+  owner: group:common-platform
   definition:
     $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
 ---
