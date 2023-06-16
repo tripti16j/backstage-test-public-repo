@@ -8,8 +8,6 @@ metadata:
     - jenkins
     - jira 
     - postman
-  system:
-    - ocs
   title: Platform Authorization Service
   annotations:
     documentation: "https://documenter.getpostman.com/view/15548094/"
@@ -38,17 +36,16 @@ metadata:
 spec:
   type: service
   lifecycle: production
-  owner: platform-team
-  system: platform
-        
-  consumesApis: 
-    - [Auth0 Services]
-    - [CNS services]
-  dependsOn: 
-    - Credit
-    - Pools
-    - Co-lending
-    - SCF
-    - Loans
-    - Invest
+  owner: group:common-platform
+#  system: platform
+#  consumesApis:
+#    - [Auth0 Services]
+#    - [CNS services]
+#  dependsOn:
+#    - Credit
+#    - Pools
+#    - Co-lending
+#    - SCF
+#    - Loans
+#    - Invest
 ---
