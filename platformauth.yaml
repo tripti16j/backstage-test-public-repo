@@ -77,5 +77,2368 @@ spec:
   lifecycle: production
   owner: group:common-platform
   definition:
-    $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
+    {
+      "info": {
+        "_postman_id": "ac15987b-5138-4315-980a-155319d7bb09",
+        "name": "User Service",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+      },
+      "item": [
+        {
+          "name": "Auth",
+          "item": [
+            {
+              "name": "verify user",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [ ],
+                "url": {
+                  "raw": "https://auth-stg-api.credavenue.in/auth/login/is_password_valid?email=jack@gmail.com",
+                  "protocol": "https",
+                  "host": [
+                    "auth-stg-api",
+                    "credavenue",
+                    "in"
+                  ],
+                  "path": [
+                    "auth",
+                    "login",
+                    "is_password_valid"
+                  ],
+                  "query": [
+                    {
+                      "key": "email",
+                      "value": "jack@gmail.com"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "verify user",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{access_token}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Mfa-Token",
+                        "value": "{{mfa_token}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Current-Entity-Id",
+                        "value": "{{current_entity}}",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Current-Group",
+                        "value": "{{current_group}}",
+                        "type": "text"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url_qa}}/auth/login/is_password_valid?email=narayanan@svasti.in",
+                      "host": [
+                        "{{url_qa}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login",
+                        "is_password_valid"
+                      ],
+                      "query": [
+                        {
+                          "key": "email",
+                          "value": "narayanan@svasti.in"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Date",
+                      "value": "Wed, 23 Jun 2021 06:29:00 GMT"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json; charset=utf-8"
+                    },
+                    {
+                      "key": "Transfer-Encoding",
+                      "value": "chunked"
+                    },
+                    {
+                      "key": "Connection",
+                      "value": "keep-alive"
+                    },
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin-when-cross-origin"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"6f34a63aabd0690275b9d170a7d9c56c\""
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "max-age=0, private, must-revalidate"
+                    },
+                    {
+                      "key": "X-Request-Id",
+                      "value": "38e0f783-0f95-4f78-a7f0-047151b6d880"
+                    },
+                    {
+                      "key": "X-Runtime",
+                      "value": "0.008130"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Origin"
+                    }
+                  ],
+                  "cookie": [ ],
+                  "body": "{\n    \"user_email\": \"narayanan@svasti.in\",\n    \"mfa_token\": null,\n    \"temp_password\": null,\n    \"invalid_password_check\": null,\n    \"internal\": false\n}"
+                }
+              ]
+            },
+            {
+              "name": "ms login",
+              "event": [
+                {
+                  "listen": "prerequest",
+                  "script": {
+                    "exec": [
+                      ""
+                    ],
+                    "type": "text/javascript"
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/auth/ms_login?id_token=",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "ms_login"
+                  ],
+                  "query": [
+                    {
+                      "key": "id_token",
+                      "value": "",
+                      "description": "microsoft token id"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "verify user Copy",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Authorization",
+                        "value": "{{access_token}}",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      {
+                        "key": "Mfa-Token",
+                        "value": "{{mfa_token}}",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      {
+                        "key": "Current-Entity-Id",
+                        "value": "{{current_entity}}",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      {
+                        "key": "Current-Group",
+                        "value": "{{current_group}}",
+                        "type": "text",
+                        "disabled": true
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{url_qa}}/auth/ms_login?id_token=eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjQ0NDU1MTksInNvdXJjZSI6ImF1dGgifQ.79sY1odkONT77braOCPEP18KH1lfrfqxoPIJRON8cC8",
+                      "host": [
+                        "{{url_qa}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "ms_login"
+                      ],
+                      "query": [
+                        {
+                          "key": "id_token",
+                          "value": "eyJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MjQ0NDU1MTksInNvdXJjZSI6ImF1dGgifQ.79sY1odkONT77braOCPEP18KH1lfrfqxoPIJRON8cC8",
+                          "description": "Microsoft id token"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "X-Frame-Options",
+                      "value": "SAMEORIGIN"
+                    },
+                    {
+                      "key": "X-XSS-Protection",
+                      "value": "1; mode=block"
+                    },
+                    {
+                      "key": "X-Content-Type-Options",
+                      "value": "nosniff"
+                    },
+                    {
+                      "key": "X-Download-Options",
+                      "value": "noopen"
+                    },
+                    {
+                      "key": "X-Permitted-Cross-Domain-Policies",
+                      "value": "none"
+                    },
+                    {
+                      "key": "Referrer-Policy",
+                      "value": "strict-origin-when-cross-origin"
+                    },
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "key": "ETag",
+                      "value": "W/\"7165fa9f395ae2bf31ea898f55b09bce\""
+                    },
+                    {
+                      "key": "Cache-Control",
+                      "value": "max-age=0, private, must-revalidate"
+                    },
+                    {
+                      "key": "X-Request-Id",
+                      "value": "c87630b7-3cc7-49d5-a7bd-6c4e23e88e04"
+                    },
+                    {
+                      "key": "X-Runtime",
+                      "value": "67.560075"
+                    },
+                    {
+                      "key": "Vary",
+                      "value": "Origin"
+                    },
+                    {
+                      "key": "Content-Length",
+                      "value": "306"
+                    }
+                  ],
+                  "cookie": [ ],
+                  "body": "{\n    \"user_email\": \"aananthi.m@credavenue.com\",\n    \"mfa_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiZXhwIjoxNjMxMTAyMDEzfQ.C8vrbpUsS4YloX7NGCyM2zB3AC4uK-AkEgELKA3vKrQ\",\n    \"temp_password\": \"0ORc4gH3jy9uVzxw9DO7YkiRsANy1WrI9YxkpAFdcTg=\",\n    \"invalid_password_check\": null,\n    \"internal\": false\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "fetch mfa for a user",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity_id}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/mfa?product_id=CRDPL",
+              "host": [
+                "{{url_qa}}"
+              ],
+              "path": [
+                "users",
+                "5da40f0274a0f370a1fa941b",
+                "mfa"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "fetch mfa for a user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/mfa?product_id=CRDPL",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "5da40f0274a0f370a1fa941b",
+                    "mfa"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 23 Jun 2021 06:35:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c955e57777ec0d73639dca6748560d00\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "8f42c079-51c3-4ca6-b600-a2537aa83eaa"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.426252"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "mfa verify an user",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity_id}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/mfa_verify?product_id=1&otp=999999",
+              "host": [
+                "{{url_qa}}"
+              ],
+              "path": [
+                "users",
+                "5da40f0274a0f370a1fa941b",
+                "mfa_verify"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "1",
+                  "description": "Respective product from which api is called(code/id can be used)"
+                },
+                {
+                  "key": "otp",
+                  "value": "999999"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "mfa verify an user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/mfa_verify?product_id=CRDPL&otp=999999",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "5da40f0274a0f370a1fa941b",
+                    "mfa_verify"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    },
+                    {
+                      "key": "otp",
+                      "value": "999999"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 23 Jun 2021 06:36:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"b7cdddd303a32d868fcca31744d41dc3\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "78f7c7b0-00a5-4547-94da-c2f196201f88"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.089663"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"mfa_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiZXhwIjoxNjMyMzc4OTcwfQ.6qEZtYL80J2Rp9ZkRPW08dzgvfU63PwgyL4eaRAD6p4\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "logout from all devices user",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity_id}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/logout_from_all_devices?product_id=CRDPL",
+              "host": [
+                "{{url_qa}}"
+              ],
+              "path": [
+                "users",
+                "5da40f0274a0f370a1fa941b",
+                "logout_from_all_devices"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "logout from all devices user",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/5da40f0274a0f370a1fa941b/logout_from_all_devices?product_id=CRDPL",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "5da40f0274a0f370a1fa941b",
+                    "logout_from_all_devices"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 23 Jun 2021 06:37:04 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c955e57777ec0d73639dca6748560d00\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "8d988346-1bd1-4883-81eb-3d15a540f82f"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.073270"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "can update password",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url_qa}}/users/can_update_password?product_id=1&user_id=1",
+              "host": [
+                "{{url_qa}}"
+              ],
+              "path": [
+                "users",
+                "can_update_password"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "1",
+                  "description": "Respective product from which api is called(code/id can be used)"
+                },
+                {
+                  "key": "user_id",
+                  "value": "1"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "can update password",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/can_update_password?product_id=1&user_id=5da40f0274a0f370a1fa941b",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "can_update_password"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "1",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    },
+                    {
+                      "key": "user_id",
+                      "value": "5da40f0274a0f370a1fa941b"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Date",
+                  "value": "Wed, 23 Jun 2021 06:37:35 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c955e57777ec0d73639dca6748560d00\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "3c023c71-9c6a-4908-b597-a7f2485adbf6"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.017604"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Resend activation link",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity_id}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/users/5da40f0274a0f370a1fa941b/resend_activation_link?product_id=CRDPL",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "users",
+                "5da40f0274a0f370a1fa941b",
+                "resend_activation_link"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Resend activation link",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/1/resend_activation_link?product_id=1",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "1",
+                    "resend_activation_link"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "1",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"c955e57777ec0d73639dca6748560d00\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "13264229-c26e-411c-9459-ba10b6273001"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "19.462238"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"success\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "forgot password users",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/users/forgot_password?product_id=CRDPL&email=ben@gmail.com",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "forgot_password"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL",
+                  "description": "Respective product from which api is called(code/id can be used)"
+                },
+                {
+                  "key": "email",
+                  "value": "ben@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "forgot password users",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/forgot_password?product_id=1&email=aananthi.m@credavenue.com",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "forgot_password"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "1",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    },
+                    {
+                      "key": "email",
+                      "value": "aananthi.m@credavenue.com"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c85ad52cffe5aaca6673bde579a7663\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "2e8982f5-dfa6-4bb7-9174-e664acb9d401"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "14.058352"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"email\": \"aananthi.m@credavenue.com\",\n    \"mfa_token\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "activate",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/users/forgot_password?product_id=CRDPL&email=ben@gmail.com",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "forgot_password"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL",
+                  "description": "Respective product from which api is called(code/id can be used)"
+                },
+                {
+                  "key": "email",
+                  "value": "ben@gmail.com"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "forgot password users",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{url_qa}}/users/forgot_password?product_id=1&email=aananthi.m@credavenue.com",
+                  "host": [
+                    "{{url_qa}}"
+                  ],
+                  "path": [
+                    "users",
+                    "forgot_password"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "1",
+                      "description": "Respective product from which api is called(code/id can be used)"
+                    },
+                    {
+                      "key": "email",
+                      "value": "aananthi.m@credavenue.com"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1c85ad52cffe5aaca6673bde579a7663\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "2e8982f5-dfa6-4bb7-9174-e664acb9d401"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "14.058352"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"email\": \"aananthi.m@credavenue.com\",\n    \"mfa_token\": null\n}"
+            }
+          ]
+        },
+        {
+          "name": "change_password",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/users/5da40f0274a0f370a1fa941b/change_password?product_id=CRDPL",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "users",
+                "5da40f0274a0f370a1fa941b",
+                "change_password"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "change_password",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:3000/users/5daeab39e4c4130f4a7f5514/change_password?product_id=CRDPL",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "3000",
+                  "path": [
+                    "users",
+                    "5daeab39e4c4130f4a7f5514",
+                    "change_password"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"f83056610d275924204291596001f761\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "52901c6b-a005-45ec-a4f6-b02b4aade690"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "2.614365"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"id\": 1,\n    \"ca_user_id\": \"5daeab39e4c4130f4a7f5514\",\n    \"name\": \"Rep. Rageshwari Mukhopadhyay\",\n    \"email\": \"jared@mohr.net\",\n    \"email_verified\": null,\n    \"groups\": {\n        \"customer\": \"admin\",\n        \"investor\": \"admin\"\n    },\n    \"notification_channels\": [\n        \"email\"\n    ],\n    \"notifications\": [\n        \"email\"\n    ],\n    \"terms_and_conditions_accepted\": false,\n    \"sector\": null,\n    \"created_at\": \"2021-07-19T05:55:02.481Z\",\n    \"updated_at\": \"2021-07-26T05:20:44.714Z\",\n    \"internal\": null,\n    \"roles\": []\n}"
+            }
+          ]
+        },
+        {
+          "name": "Logout",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity}}",
+                "type": "text",
+                "disabled": true
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text",
+                "disabled": true
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/auth/logout?product_id=CRDPL",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Logout - logging out -success response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1EZzNOMEU1TjBNelJrUkdPVGsyUWtVMk56WkJSVE5FTkVFd05URTNOVU16UmtaQlJVRXdSZyJ9.eyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9yb2xlcyI6WyJhZG1pbiJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9ncm91cHMiOlsiY3VzdG9tZXIiXSwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vc3ViZ3JvdXBzIjpbImFuY2hvciJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9lbnRpdHlfaWQiOiI1YWEyMmY4OGI1YjZlMjcyZmJhZDI0MDAiLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9sb2NhbF91c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiaXNzIjoiaHR0cHM6Ly92aXZyaXRpLW1hcmtldC1wbGFjZS1zdGcuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTQwZjA0YmRkYzBlMGRmZjNlMTYxOSIsImF1ZCI6WyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbiIsImh0dHBzOi8vdml2cml0aS1tYXJrZXQtcGxhY2Utc3RnLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MzUxNzAzNjAsImV4cCI6MTYzNTI1Njc2MCwiYXpwIjoiS3VvNnYwRXJXUlR0WEd0QUY2N1o0U05GQlg3UDIyQVoiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCJ9.kn9qpWr79MdglluKVOX5AR0NeVJTA3XzLS4FgOr2ReM0i0Z6tJC9GzCCjCZkNTmbUJVlQ_-rZn7KTAc-JTiR9TrL8YSgBsjU6q5aFfKUYX8QrKWYLDpc5PTG-vCJMCcpmDqUXucPa8BAYWCKIejQQc9pJyWn9NAA4vW06DvsUCZaT5aa1iBsUzXbP-gum6wFt3CQfrLOx4CCEHCsO2RUhm-Qiq-wHD5H39OC8r5NtNRiPM9IR19POD74F024G0B90_2kp4CjBiTt2y2KMCYRsd9rSWdi7G__V0eu60Y2zQQa-uzhyXOMAVoWHQTKrrkCZyh5pyF7YvcqkmzTDel6JQ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/auth/logout?product_id=CRDPL",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "51010c02-d726-4020-ab62-4d7018232597"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.774291"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": ""
+            },
+            {
+              "name": "Logout - exmaple when tried after logout error respnse",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1EZzNOMEU1TjBNelJrUkdPVGsyUWtVMk56WkJSVE5FTkVFd05URTNOVU16UmtaQlJVRXdSZyJ9.eyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9yb2xlcyI6WyJhZG1pbiJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9ncm91cHMiOlsiY3VzdG9tZXIiXSwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vc3ViZ3JvdXBzIjpbImFuY2hvciJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9lbnRpdHlfaWQiOiI1YWEyMmY4OGI1YjZlMjcyZmJhZDI0MDAiLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9sb2NhbF91c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiaXNzIjoiaHR0cHM6Ly92aXZyaXRpLW1hcmtldC1wbGFjZS1zdGcuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTQwZjA0YmRkYzBlMGRmZjNlMTYxOSIsImF1ZCI6WyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbiIsImh0dHBzOi8vdml2cml0aS1tYXJrZXQtcGxhY2Utc3RnLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2MzUxNzAzNjAsImV4cCI6MTYzNTI1Njc2MCwiYXpwIjoiS3VvNnYwRXJXUlR0WEd0QUY2N1o0U05GQlg3UDIyQVoiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCJ9.kn9qpWr79MdglluKVOX5AR0NeVJTA3XzLS4FgOr2ReM0i0Z6tJC9GzCCjCZkNTmbUJVlQ_-rZn7KTAc-JTiR9TrL8YSgBsjU6q5aFfKUYX8QrKWYLDpc5PTG-vCJMCcpmDqUXucPa8BAYWCKIejQQc9pJyWn9NAA4vW06DvsUCZaT5aa1iBsUzXbP-gum6wFt3CQfrLOx4CCEHCsO2RUhm-Qiq-wHD5H39OC8r5NtNRiPM9IR19POD74F024G0B90_2kp4CjBiTt2y2KMCYRsd9rSWdi7G__V0eu60Y2zQQa-uzhyXOMAVoWHQTKrrkCZyh5pyF7YvcqkmzTDel6JQ",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity}}",
+                    "type": "text",
+                    "disabled": true
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/auth/logout?product_id=CRDPL",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "logout"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Accept, Origin"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "cc28ce54-6082-4af7-87d9-44f9c90dc8d5"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.005032"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"error\": {\n        \"message\": \"Not Authenticated - Blacklisted Token\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Verify access token and mfa token",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{access_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Mfa-Token",
+                "value": "{{mfa_token}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "{{current_entity_id}}",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "{{current_group}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/auth/login/verify?product_id=CRDPL",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth",
+                "login",
+                "verify"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Verify access token and mfa token - example",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Mfa-Token",
+                    "value": "{{mfa_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/auth/login/verify?product_id=CRDPL",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login",
+                    "verify"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"85cb4d289bde1bbf113800309a95608d\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "87ef9a60-0b3b-4d42-9a97-7f58dcf18ca9"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.456781"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"auth0_payload\": {\n        \"https://mp-api-stg.vivriti.in/roles\": [\n            \"admin\"\n        ],\n        \"https://mp-api-stg.vivriti.in/groups\": [\n            \"customer\"\n        ],\n        \"https://mp-api-stg.vivriti.in/subgroups\": [\n            \"anchor\"\n        ],\n        \"https://mp-api-stg.vivriti.in/entity_id\": \"5aa22f88b5b6e272fbad2400\",\n        \"https://mp-api-stg.vivriti.in/local_user_id\": \"5da40f0274a0f370a1fa941b\",\n        \"iss\": \"https://vivriti-market-place-stg.auth0.com/\",\n        \"sub\": \"auth0|5da40f04bddc0e0dff3e1619\",\n        \"aud\": [\n            \"https://mp-api-stg.vivriti.in\",\n            \"https://vivriti-market-place-stg.auth0.com/userinfo\"\n        ],\n        \"iat\": 1637919167,\n        \"exp\": 1638005567,\n        \"azp\": \"Kuo6v0ErWRTtXGtAF67Z4SNFBX7P22AZ\",\n        \"scope\": \"openid email\"\n    },\n    \"auth0_header\": {\n        \"alg\": \"RS256\",\n        \"typ\": \"JWT\",\n        \"kid\": \"MDg3N0E5N0MzRkRGOTk2QkU2NzZBRTNENEEwNTE3NUMzRkZBRUEwRg\"\n    },\n    \"user_id\": \"5da40f0274a0f370a1fa941b\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "MFA token for sso login",
+          "event": [
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1EZzNOMEU1TjBNelJrUkdPVGsyUWtVMk56WkJSVE5FTkVFd05URTNOVU16UmtaQlJVRXdSZyJ9.eyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9yb2xlcyI6WyJhZG1pbiJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9ncm91cHMiOlsiY3VzdG9tZXIiXSwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vc3ViZ3JvdXBzIjpbImFuY2hvciJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9lbnRpdHlfaWQiOiI1YWEyMmY4OGI1YjZlMjcyZmJhZDI0MDAiLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9sb2NhbF91c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiaXNzIjoiaHR0cHM6Ly92aXZyaXRpLW1hcmtldC1wbGFjZS1zdGcuYXV0aDAuY29tLyIsInN1YiI6ImF1dGgwfDVkYTQwZjA0YmRkYzBlMGRmZjNlMTYxOSIsImF1ZCI6WyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbiIsImh0dHBzOi8vdml2cml0aS1tYXJrZXQtcGxhY2Utc3RnLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE2Mzk5ODcwMTEsImV4cCI6MTY0MDA3MzQxMSwiYXpwIjoiS3VvNnYwRXJXUlR0WEd0QUY2N1o0U05GQlg3UDIyQVoiLCJzY29wZSI6Im9wZW5pZCBlbWFpbCJ9.aWkuPfqwQvaHhHp06Jn_aDBCavGnrYyPP4Ni6YqGcVfXkB-fGHB_xvu3aaDC04TEJTkZhs3IhV5s7e7hvSWxkIB8c-t0bf2WhHzjUXsgQC9GA83v22d68CPrlrh6hnitPic7TrAH0dVYBUR0tugPWfnBvJZ1Nhlgq9xKKu3IwkiNKxH_hRV4xbTJsS8bacdRoP-ZE_yJtMi2Ags6BHJj0-jFa3DDs3VwuMlAAmp3nVcLn81bLbvTLOFKX9kjY0M-uK03Tl6ZiCv374MG_oLQKsiV8PTllkp2AH3PhxT8QsKAztA1HJx5Cv8ylGSGJTA_dOViJEEf4tkqY9s-tcyKXA",
+                "type": "text"
+              },
+              {
+                "key": "Current-Group",
+                "value": "customer",
+                "type": "text"
+              },
+              {
+                "key": "Current-Entity-Id",
+                "value": "5aa22f88b5b6e272fbad2400",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{url}}/auth/login/mfa_token_for_sso?product_id=CRDPL",
+              "host": [
+                "{{url}}"
+              ],
+              "path": [
+                "auth",
+                "login",
+                "mfa_token_for_sso"
+              ],
+              "query": [
+                {
+                  "key": "product_id",
+                  "value": "CRDPL"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Verify access token and mfa token -example",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{access_token}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Entity-Id",
+                    "value": "{{current_entity_id}}",
+                    "type": "text"
+                  },
+                  {
+                    "key": "Current-Group",
+                    "value": "{{current_group}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{url}}/auth/login/mfa_token_for_sso?product_id=CRDPL&email=aananthi.m@credavenue.net&auth0_user_id=adfs|ADFS|aananthi",
+                  "host": [
+                    "{{url}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login",
+                    "mfa_token_for_sso"
+                  ],
+                  "query": [
+                    {
+                      "key": "product_id",
+                      "value": "CRDPL"
+                    },
+                    {
+                      "key": "email",
+                      "value": "aananthi.m@credavenue.net"
+                    },
+                    {
+                      "key": "auth0_user_id",
+                      "value": "adfs|ADFS|aananthi"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Frame-Options",
+                  "value": "SAMEORIGIN"
+                },
+                {
+                  "key": "X-XSS-Protection",
+                  "value": "1; mode=block"
+                },
+                {
+                  "key": "X-Content-Type-Options",
+                  "value": "nosniff"
+                },
+                {
+                  "key": "X-Download-Options",
+                  "value": "noopen"
+                },
+                {
+                  "key": "X-Permitted-Cross-Domain-Policies",
+                  "value": "none"
+                },
+                {
+                  "key": "Referrer-Policy",
+                  "value": "strict-origin-when-cross-origin"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1949db1393d196e58756482f59db41aa\""
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "max-age=0, private, must-revalidate"
+                },
+                {
+                  "key": "X-Request-Id",
+                  "value": "569c3dbb-b7b2-4f96-8bf7-8f6b9b750003"
+                },
+                {
+                  "key": "X-Runtime",
+                  "value": "0.232709"
+                },
+                {
+                  "key": "Vary",
+                  "value": "Origin"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                }
+              ],
+              "cookie": [ ],
+              "body": "{\n    \"user_email\": \"aananthi.m@credavenue.net\",\n    \"mfa_token\": \"eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiYWRhcyIsImV4cCI6MTY0Njc1ODcwN30.nrnc_YrlXatbNnCULMMsKOMMOeZNPncltuPB-l713Sk\"\n}"
+            }
+          ]
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ],
+      "variable": [
+        {
+          "key": "url_qa",
+          "value": "https://auth-qa-api.credavenue.in"
+        },
+        {
+          "key": "url",
+          "value": "localhost:3000"
+        },
+        {
+          "key": "access_token",
+          "value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik1EZzNOMEU1TjBNelJrUkdPVGsyUWtVMk56WkJSVE5FTkVFd05URTNOVU16UmtaQlJVRXdSZyJ9.eyJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9yb2xlcyI6WyJhZG1pbiJdLCJodHRwczovL21wLWFwaS1zdGcudml2cml0aS5pbi9ncm91cHMiOlsiY3VzdG9tZXIiXSwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vZW50aXR5X2lkIjoiNWFhMjJmODhiNWI2ZTI3MmZiYWQyNDAwIiwiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4vbG9jYWxfdXNlcl9pZCI6IjVkYTQwZjAyNzRhMGYzNzBhMWZhOTQxYiIsImlzcyI6Imh0dHBzOi8vdml2cml0aS1tYXJrZXQtcGxhY2Utc3RnLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZGE0MGYwNGJkZGMwZTBkZmYzZTE2MTkiLCJhdWQiOlsiaHR0cHM6Ly9tcC1hcGktc3RnLnZpdnJpdGkuaW4iLCJodHRwczovL3ZpdnJpdGktbWFya2V0LXBsYWNlLXN0Zy5hdXRoMC5jb20vdXNlcmluZm8iXSwiaWF0IjoxNjI0NDI5NjQ4LCJleHAiOjE2MjQ1MTYwNDgsImF6cCI6Ikt1bzZ2MEVyV1JUdFhHdEFGNjdaNFNORkJYN1AyMkFaIiwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBlbWFpbCJ9.OiYIe3rTZ3IOw6GXvr7UaGbKlGv5JqiYHeYLNjYZnGFfXg2ojtFrj-C4C80UDbvsO1hajqlQHHkmRqonUddeHvx8X-2OSl_6ItcbpQtx3g1Q7AFRhZ6gHn3IxYE0RVQ9kuydOCKhWXbU_sUrxd1y3BYB-FOPjX5gU0T7XGm9psPUo1pbahydftH-_n5GFhL83ZGLNQQngXE-SLjqsY2zrIgCrqkM8N3mgKwAIRL6B6XokCLNVPvp4jBdt0TRHnsJJARWMj7p23gA9P-HjVVqelurLWf_YoI3104LTaJuaNofmhepjPI1Tb4n3bYh-UXgM4pni5Y1P8LviUK8RJ0hhg"
+        },
+        {
+          "key": "mfa_token",
+          "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoiNWRhNDBmMDI3NGEwZjM3MGExZmE5NDFiIiwiZXhwIjoxNjMyMzc4NDU4fQ.Ptb9TwLU2Anz37CQMPeRo5-EkDHkZg3uoWrPVXW-Lho"
+        },
+        {
+          "key": "current_entity_id",
+          "value": "5aa22f88b5b6e272fbad2400"
+        },
+        {
+          "key": "current_group",
+          "value": "customer"
+        },
+        {
+          "key": "url_prod",
+          "value": "https://auth-api.credavenue.com"
+        }
+      ]
+    }
 ---
