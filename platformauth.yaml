@@ -44,8 +44,8 @@ spec:
   owner: group:common-platform
 #  system: platform
   consumesApis:
-    - auth0services
-    - cnsservices
+    - auth0-apis
+    - cns-apis
 #  dependsOn:
 #    - component:CreditOCSService
 #    - component:Pools
@@ -53,4 +53,26 @@ spec:
 #    - component:SCF
 #    - component:Loans
 #    - component:Invest
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: auth0-apis
+spec:
+  type: openapi
+  lifecycle: production
+#  owner: thirdparty
+#  definition:
+#    $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: cns-apis
+spec:
+  type: openapi
+  lifecycle: production
+#  owner: thirdparty
+#  definition:
+#    $text: https://3p-cir-qa.go-yubi.in/v2/api-docs
 ---
