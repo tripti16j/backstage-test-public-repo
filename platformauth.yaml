@@ -76,7 +76,7 @@ spec:
   type: openapi
   lifecycle: production
   owner: group:common-platform
-  definition:
+  definition: |
     {
       "info": {
         "_postman_id": "ac15987b-5138-4315-980a-155319d7bb09",
