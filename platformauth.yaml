@@ -3885,3 +3885,40 @@ spec:
   owner: group:pools-integration
   dependsOn:
     - component:platform-auth-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Co-lending
+  description: Co-lending Service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:co-lending-adhoc
+  dependsOn:
+    - component:platform-auth-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: SCF
+  description: SCF Service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:scf-integration
+  dependsOn:
+    - component:platform-auth-service
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: Loans
+  description: Loans Service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:loans
+  dependsOn:
+    - component:platform-auth-service
+---
