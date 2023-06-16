@@ -8,10 +8,15 @@ metadata:
     - jenkins
     - jira 
     - postman
-  title: Platform Authorization Service
+#  title: Platform Authorization Service
   annotations:
-    documentation: "https://documenter.getpostman.com/view/15548094/"
-    environment: "production"
+#    jenkins.io/job-full-name: Creditrating/CIR/OCSService/Int/build-image
+    jira/project-key: CP
+    backstage.io/code-coverage: scm-only
+    backstage.io/techdocs-ref: dir:.
+    newrelic.com/dashboard-guid: Mjg0NjIxOXxWSVp8REFTSEJPQVJEfGRhOjI3NzQ5MjA
+#    documentation: "https://documenter.getpostman.com/view/15548094/"
+#    environment: "production"
   links:
     - url: https://goyubi.atlassian.net/jira/software/c/projects/CP/boards/53?quickFilter=186
       title: Jira Dashboard
