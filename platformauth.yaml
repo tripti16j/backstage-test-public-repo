@@ -3874,3 +3874,14 @@ spec:
                     type: object
                   example: ok
 ---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pools
+  description: Pools Service
+spec:
+  type: service
+  lifecycle: production
+  owner: group:pools-integration
+  dependsOn:
+    - component:platform-auth-service
