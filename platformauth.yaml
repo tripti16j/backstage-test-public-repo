@@ -47,7 +47,7 @@ spec:
 #    - [Auth0 Services]
 #    - [CNS services]
   dependsOn:
-    - component:Credit
+    - component:CreditOCSService
     - component:Pools
     - component:Co-lending
     - component:SCF
