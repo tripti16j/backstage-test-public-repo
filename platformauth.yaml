@@ -46,6 +46,7 @@ spec:
   consumesApis:
     - auth0-apis
     - cns-apis
+    - flex-api
 #  dependsOn:
 #    - component:CreditOCSService
 #    - component:Pools
