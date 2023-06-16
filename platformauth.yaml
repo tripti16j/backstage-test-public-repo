@@ -2,17 +2,17 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: Platform Service
-  description: plat auth
+  name: platform-auth-service
+  description: Platform Auth Service
   tags:
     - jenkins
     - jira 
     - postman
   system:
     - ocs
+  title: Platform Authorization Service
   annotations:
     documentation: "https://documenter.getpostman.com/view/15548094/"
-    
     environment: "production"
   links:
     - url: https://goyubi.atlassian.net/jira/software/c/projects/CP/boards/53?quickFilter=186
